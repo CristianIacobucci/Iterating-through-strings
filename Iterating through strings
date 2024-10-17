@@ -1,0 +1,69 @@
+message = input("What is your message? ")
+
+print()
+print(f"Your message is {len(message)} characters long.")
+print(f"The first character is at position 0 and is '{message[0]}'.")
+lastpos = len(message) - 1
+print(f"The last character is at position {lastpos} and is '{message[lastpos]}'.")
+print()
+print("Here are all the characters, one at a time:\n")
+
+for i in range(len(message)):
+    print(f"\t{i} - '{message[i]}'")
+
+a_count = 0
+for i in range(len(message)):
+    letter = message[i].lower()
+    if letter == 'a':
+        a_count += 1
+
+print(f"\nYour message contains the letter 'a' {a_count} times.")
+
+print()
+print("-----------------------------------------")
+print()
+
+string1 = input("enter a string: ")
+string2 = ''.join(char * 2 for char in string1)
+print("string2:", string2)
+
+print()
+print("-----------------------------------------")
+print()
+
+string3 = input("enter the first string: ")
+string4 = input("Enter the second stirng: ")
+string3_lower = string3.lower()
+string4_lower = string4.lower()
+is_suffix = string3_lower.endswith(string4_lower) or string4_lower.endswith(string3_lower)
+print(is_suffix)
+
+print()
+print("-----------------------------------------")
+print()
+
+def is_xy_balanced(s):
+    found_y = False
+
+    for char in reversed(s):
+        if char == 'y':
+            found_y = True
+        elif char == 'x' and not found_y:
+            return False
+    return True
+input_string = input("Enter a string: ")
+print(is_xy_balanced(input_string))
+
+print()
+print("-----------------------------------------")
+print()
+
+def contains_bob(s):
+    for i in range(len(s) - 2):
+        if s[i] == 'b' and s[i + 2] == 'b':
+            return True
+    return False
+
+input_string = input("Enter a string(bob): ")
+
+print(contains_bob(input_string))
